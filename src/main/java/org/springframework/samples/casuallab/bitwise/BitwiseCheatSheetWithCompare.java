@@ -13,6 +13,32 @@ package org.springframework.samples.casuallab.bitwise;
  *   Traditional tutorials forced me to waste energy memorizing useless APIs
  *   and binary tables. I believe programming should be about reasoning,
  *   not rote memorization.
+ *
+ * ---------------------------------------------------
+ * 1. Core Concepts
+ * & → both are 1 → intersection (mask / clear bits)
+ * | → either is 1 → union (set bits)
+ * ^ → different is 1 → difference / toggle
+ *
+ * ---------------------------------------------------
+ * 2. Common Formulas
+ * n & (n - 1)    → remove the lowest set bit
+ * n | (n - 1)    → set all bits to the right of the lowest set bit
+ * n ^ (n - 1)    → flip all bits up to the lowest set bit
+ * x ^ x = 0      → same cancels out
+ * x & -x         → extract lowest set bit
+ * x | (1 << k)   → set k-th bit
+ * x & ~(1 << k)  → clear k-th bit
+ * x ^ (1 << k)   → toggle k-th bit
+ *
+ * ---------------------------------------------------
+ * 3. Additional Useful Tricks
+ * (x & 1) == 0                 → check if x is even
+ * (x ^ (x >> 31)) - (x >> 31)  → absolute value of x
+ * (x & y) + ((x ^ y) >> 1)     → average of x and y (avoid overflow)
+ * c ^ 32                       → toggle character case (A ↔ a)
+ *
+ * ---------------------------------------------------
  */
 
 public class BitwiseCheatSheetWithCompare {
